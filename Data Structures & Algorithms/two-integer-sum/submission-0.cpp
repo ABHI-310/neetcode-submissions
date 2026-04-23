@@ -1,0 +1,19 @@
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        int n = nums.size();
+        unordered_map<int,int> freq;
+        for(int i =0;i<n;i++){
+            freq[nums[i]]=i;
+        }
+
+        for(int i=0;i<n;i++){
+            int diff = target - nums[i];
+            if(freq.count(diff) && freq[diff] != i){
+                return {i,freq[diff]};
+            }
+        }
+
+        return {};
+    }
+};
